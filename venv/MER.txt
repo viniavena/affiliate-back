@@ -1,0 +1,64 @@
+MER:
+
+- store:
+id
+name
+sector
+commission_rate
+email
+telephone
+cnpj
+products *
+reseller *
+
+- reseller:
+id
+name
+cpf
+email
+telephone
+address
+number
+city
+state
+country
+stores *
+sales *
+
+- sales:
+id
+reseller * 
+value
+commission_rate
+payment_method
+product *
+quantity
+date
+client *
+
+- product
+id
+title
+description
+price
+discount
+brand
+category
+
+- client:
+id
+name
+telephone
+email
+sales *
+resellers *
+
+
+Relations:
+
+store (n) --- reseller (n)
+store (1) --- product (n)
+reseller(1) --- sales (n)
+client(1) --- sales(n)
+sales(1) --- product(1)
+resellers(n) --- client(n)
